@@ -1,2 +1,2 @@
-# go_databases
+# GO Databases
 Investigating databases SQL/NOSQL
