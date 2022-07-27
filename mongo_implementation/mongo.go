@@ -12,15 +12,6 @@ import (
 	"time"
 )
 
-type Database interface {
-	Ping()
-	InsertDocument()
-	SearchAllDocument()
-	DeleteDocument()
-	UpdateDocument()
-	DeleteManyUsingFilter()
-}
-
 type MongoConnection struct{}
 
 func (m *MongoConnection) connect() (context.Context, *mongo.Client, context.CancelFunc) {
@@ -64,16 +55,8 @@ func (m *MongoConnection) InsertDocument() {
 	defer cancel()
 	defer disconnect(client, ctx)
 
-	features := []records.Feature{{Name: "Flag1", Enabled: true}, {Name: "Flag2", Enabled: false}}
-
-	testing := records.Record{
-		Id:        "11111",
-		Primary:   "2222-2222",
-		Secondary: nil,
-		Code:      "Code-3333",
-		Features:  features,
-	}
-	doc, err := bson.Marshal(testing)
+	//doc, err := bson.Marshal(records.DefaultRecord2())
+	doc, err := bson.Marshal(records.DefaultRecord1())
 
 	if err != nil {
 		fmt.Printf("Error Marshalling Doc: %s\n", err)
@@ -163,6 +146,6 @@ func (m *MongoConnection) DeleteDocument() {
 	fmt.Printf("Successfully deleted %v\n", result.DeletedCount)
 }
 
-func NewMongoConnection() Database {
+func NewMongoConnection() records.Database {
 	return &MongoConnection{}
 }
