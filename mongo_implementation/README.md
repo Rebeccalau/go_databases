@@ -30,3 +30,12 @@ To shut down the service
 ```
 go run main.go
 ```
+
+## FAQ
+Document Versioning [Link](https://www.mongodb.com/blog/post/building-with-patterns-the-document-versioning-pattern)
+
+An operation on a single document is atomic [Link](https://www.mongodb.com/docs/upcoming/core/transactions/)
+
+Backups [Link](https://www.mongodb.com/docs/manual/core/backups/)
+
+

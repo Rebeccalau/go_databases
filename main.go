@@ -1,12 +1,16 @@
 package main
 
 import (
-	"go_databases/Mongo"
+	"go_databases/mongo_implementation"
 )
 
 func main() {
-	connector := Mongo.NewMongoConnection()
+	connector := mongo_implementation.NewMongoConnection()
 
 	connector.Ping()
 	connector.InsertDocument()
+	//connector.DeleteManyUsingFilter()
+	//connector.DeleteDocument()
+	//connector.SearchAllDocument()
+	//connector.UpdateDocument()
 }
