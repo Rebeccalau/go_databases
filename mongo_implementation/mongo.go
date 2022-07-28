@@ -146,6 +146,6 @@ func (m *MongoConnection) DeleteDocument() {
 	fmt.Printf("Successfully deleted %v\n", result.DeletedCount)
 }
 
-func NewMongoConnection() records.Database {
+func NewMongoConnection() records.NoSQLDatabase {
 	return &MongoConnection{}
 }

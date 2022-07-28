@@ -84,6 +84,6 @@ func (r *RedisConnection) connect() (context.Context, *redis.Client, context.Can
 	return ctx, client, cancel
 }
 
-func NewMongoConnection() records.Database {
+func NewRedisConnection() records.NoSQLDatabase {
 	return &RedisConnection{}
 }
